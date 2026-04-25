@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>창문 넘어 도망친 100세 노인 - 책 소개</title>
+    <!-- 모던하고 깔끔한 느낌을 위해 구글 폰트(본고딕 산스)를 불러옵니다 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 기본 여백 초기화 및 다크 모드 배경 설정 */
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #121212; /* 힙한 느낌의 짙은 배경 */
+            font-family: 'Noto Sans KR', sans-serif; /* 모던한 산세리프체 */
+            color: #e0e0e0; 
+            line-height: 1.7;
+        }
+
+        /* 콘텐츠가 들어갈 메인 박스 (심플하고 각진 디자인) */
+        .book-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
+            padding: 60px 50px;
+            border: 1px solid #333; /* 얇은 테두리로 모던함 강조 */
+        }
+
+        /* 제목과 작가명 영역 */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            color: #ffffff;
+            letter-spacing: -1px; /* 자간을 좁혀 트렌디한 느낌 */
+        }
+
+        .author {
+            font-size: 15px;
+            font-weight: 300;
+            color: #888888;
+            margin: 0;
+        }
+
+        /* 책 표지 이미지 영역 */
+        .cover-image-wrap {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .cover-image-wrap img {
+            max-width: 260px;
+            width: 100%;
+            border: 1px solid #333; /* 이미지에도 테두리를 주어 통일감 */
+            box-shadow: 10px 10px 0px #ff6b00; /* 오렌지색의 강렬한 솔리드 그림자 (힙한 포인트) */
+        }
+
+        /* 인상 깊은 구절 (인용구) */
+        .quote {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ff6b00; /* 오렌지 포인트 컬러 */
+            margin-bottom: 40px;
+            padding-left: 20px;
+            border-left: 4px solid #ff6b00; /* 왼쪽 굵은 선으로 인용구 강조 */
+            word-break: keep-all;
+        }
+
+        /* 책 소개 본문 */
+        .description {
+            font-size: 16px;
+            font-weight: 300;
+            text-align: justify;
+            color: #cccccc;
+            margin-bottom: 60px;
+            word-break: keep-all;
+        }
+
+        /* 목차 영역 */
+        .toc-section {
+            border-top: 1px solid #333; /* 상단 선으로 심플하게 구분 */
+            padding-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        .toc-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* 리스트(ul) 스타일 꾸미기 */
+        .toc-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-weight: 300;
+            color: #aaaaaa;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        /* 네모난 오렌지색 불릿 포인트로 모던함 추가 */
+        .toc-list li::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            background-color: #ff6b00;
+            position: absolute;
+            left: 0;
+            top: 9px;
+        }
+
+        /* 버튼 영역 */
+        .button-wrap {
+            text-align: center;
+        }
+
+        /* 온라인 서점 링크 버튼 스타일 (직관적이고 볼드하게) */
+        .btn-link {
+            display: inline-block;
+            background-color: #ff6b00;
+            color: #000000;
+            text-decoration: none;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 1px solid #ff6b00;
+        }
+
+        /* 마우스 오버 시 반전 효과 */
+        .btn-link:hover {
+            background-color: #1a1a1a;
+            color: #ff6b00;
+        }
+
+        /* 모바일 화면을 위한 반응형 디자인 */
+        @media screen and (max-width: 600px) {
+            .book-container {
+                padding: 40px 20px;
+            }
+            .title {
+                font-size: 26px;
+            }
+            .quote {
+                font-size: 18px;
+            }
+            .cover-image-wrap img {
+                box-shadow: 6px 6px 0px #ff6b00;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="book-container">
+        <!-- 1. 제목 및 작가명 -->
+        <div class="header">
+            <h1 class="title">창문 넘어 도망친 100세 노인</h1>
+            <p class="author">요나스 요나손 지음 | 임호경 옮김</p>
+        </div>
+
+        <!-- 2. 책 표지 이미지 -->
+        <div class="cover-image-wrap">
+            <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788932917771.jpg" alt="창문 넘어 도망친 100세 노인 표지 이미지">
+        </div>
+
+        <!-- 3. 책 소개 내용 -->
+        <div class="quote">
+            "어차피 일어날 일은 일어나는 법,<br>세상만사는 그 자체로 놔두어야 한다."
+        </div>
+        
+        <p class="description">
+            스웨덴 작가 요나스 요나손의 데뷔작이자 전 세계적으로 천만 부 이상 판매된 글로벌 베스트셀러입니다. 100번째 생일 파티를 앞두고 지루한 양로원 생활에 염증을 느낀 할아버지 '알란 칼손'이 슬리퍼 차림으로 창문을 넘어 탈출하면서 벌어지는 파란만장한 모험을 그립니다.
+        </p>
+
+        <!-- 4. 목차 (강의 과제 요건: ul 태그 사용) -->
+        <div class="toc-section">
+            <h2 class="toc-title">목차</h2>
+            <ul class="toc-list">
+                <li>프롤로그</li>
+                <li>1장. 2005년 5월 2일 월요일</li>
+                <li>2장. 2005년 5월 2일 월요일</li>
+                <li>3장. 2005년 5월 2일 월요일</li>
+                <li>4장. 1905~1929년</li>
+                <li>5장. 2005년 5월 2일 월요일</li>
+                <li>6장. 2005년 5월 2일 월요일~5월 3일 화요일</li>
+                <li>7장. 1929~1939년</li>
+                <li>8장. 2005년 5월 3일 화요일~5월 4일 수요일</li>
+                <li>9장. 1939년</li>
+            </ul>
+        </div>
+
+        <!-- 5. 온라인 서점 링크 -->
+        <div class="button-wrap">
+            <a href="https://product.kyobobook.co.kr/detail/S000000581866" target="_blank" class="btn-link">
+                도서 자세히 보기
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

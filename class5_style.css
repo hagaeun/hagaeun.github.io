@@ -1,0 +1,28 @@
+body {
+    background: rgb(219, 255, 255);
+    font-family: arial;
+}
+
+h3 {
+    color: #555;
+}
+
+p {
+    background-color: burlywood;
+    color: chocolate;
+    padding: 10px;
+}
+
+a {
+    color: darkgreen;
+}
+
+.second {
+    background-color: darkkhaki;
+    color: darkmagenta;
+}
+
+#special {
+    background-color: darkmagenta;
+    color: floralwhite;
+}
