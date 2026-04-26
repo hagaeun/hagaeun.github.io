@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장송의 프리렌 - 인간을 알기 위한 두 번째 여정</title>
+    <!-- 감성적이고 판타지스러운 분위기를 위한 Noto Serif KR 폰트 로드 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --point-color: #01ADBB;
+            --point-color-glow: rgba(1, 173, 187, 0.4);
+            --bg-color: #f8fafc; /* 화사하고 밝은 느낌의 라이트 톤 배경 */
+            --surface-color: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif KR', serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 공통 이미지 플레이스홀더 스타일 */
+        .img-placeholder {
+            background-color: rgba(1, 173, 187, 0.05);
+            border: 1px dashed var(--point-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--point-color);
+            font-size: 14px; /* rem -> px */
+            letter-spacing: 1px;
+            text-align: center;
+            padding: 16px; /* rem -> px */
+        }
+
+        /* Header (Hero Section) */
+        header {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(248, 250, 252, 0.3) 0%, rgba(248, 250, 252, 1) 100%);
+            z-index: 2;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 3;
+            margin: auto auto 64px auto; /* rem -> px */
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .header-content h1 {
+            font-size: 48px; /* rem -> px */
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px; /* rem -> px */
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+        }
+
+        .header-content p {
+            font-size: 19px; /* rem -> px */
+            color: var(--point-color);
+            font-weight: 700;
+        }
+
+        /* Section Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 64px 32px; /* rem -> px */
+        }
+
+        section {
+            margin-bottom: 96px; /* rem -> px */
+            animation: slideUp 1.5s ease-out;
+        }
+
+        .section-title {
+            font-size: 32px; /* rem -> px */
+            text-align: center;
+            margin-bottom: 48px; /* rem -> px */
+            color: var(--point-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--point-color);
+            margin: 16px auto 0; /* rem -> px */
+            box-shadow: 0 0 8px var(--point-color);
+        }
+
+        /* Section 1: Synopsis */
+        .synopsis-content {
+            text-align: center;
+            font-size: 18px; /* rem -> px */
+            line-height: 2;
+            color: var(--text-muted);
+            padding: 32px; /* rem -> px */
+            background: var(--surface-color);
+            border-radius: 12px;
+            border-top: 1px solid rgba(1, 173, 187, 0.2);
+            border-bottom: 1px solid rgba(1, 173, 187, 0.2);
+        }
+
+        /* Section 2: Profile */
+        .profile-wrapper {
+            display: flex;
+            gap: 48px; /* rem -> px */
+            align-items: center;
+            background: var(--surface-color);
+            padding: 32px; /* rem -> px */
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 400px;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .profile-info h3 {
+            font-size: 40px; /* rem -> px */
+            margin-bottom: 16px; /* rem -> px */
+            color: var(--text-main);
+        }
+
+        .profile-info h3 span {
+            font-size: 16px; /* rem -> px */
+            color: var(--point-color);
+            font-weight: 300;
+            margin-left: 10px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list > li {
+            display: flex;
+            margin-bottom: 19px; /* rem -> px */
+            font-size: 17px; /* rem -> px */
+        }
+
+        .info-list strong {
+            color: var(--point-color);
+            display: inline-block;
+            width: 100px;
+            flex-shrink: 0;
+        }
+
+        .sub-list {
+            list-style-type: disc;
+            padding-left: 19px; /* rem -> px */
+            margin: 0;
+        }
+
+        .sub-list li {
+            margin-bottom: 6px; /* rem -> px */
+            font-size: 16px; /* rem -> px */
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Section 3: Companions (새로운 레이아웃) */
+        .party-section {
+            margin-bottom: 80px; /* 그룹 간격 */
+        }
+
+        .party-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .party-title {
+            font-size: 24px; /* rem -> px */
+            margin-bottom: 24px; /* rem -> px */
+            color: var(--text-main);
+            border-left: 3px solid var(--point-color);
+            padding-left: 16px; /* rem -> px */
+        }
+
+        .group-img {
+            width: 100%;
+            height: 350px; /* 단체 사진 높이 */
+            border-radius: 12px;
+            margin-bottom: 32px; /* 사진과 캐릭터 리스트 사이 간격 */
+        }
+
+        .character-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3명 나란히 가로 배치 */
+            gap: 24px; /* rem -> px */
+        }
+
+        .character-card {
+            display: flex;
+            flex-direction: column; /* 세로 정렬로 변경 */
+            align-items: center; /* 가운데 정렬 */
+            text-align: center;
+            padding: 24px; /* rem -> px */
+            background: var(--surface-color);
+            border-radius: 12px;
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            background: #ffffff;
+            border-color: rgba(1, 173, 187, 0.3);
+            box-shadow: 0 8px 25px rgba(1, 173, 187, 0.15);
+        }
+
+        .char-img {
+            width: 120px; /* 원형 이미지 크기 조정 */
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 16px; /* 텍스트와의 간격 */
+            flex-shrink: 0;
+        }
+
+        .char-info h4 {
+            font-size: 19px; /* rem -> px */
+            color: var(--point-color);
+            margin-bottom: 8px; /* rem -> px */
+        }
+
+        .char-info p {
+            font-size: 15px; /* rem -> px */
+            color: var(--text-muted);
+            line-height: 1.5;
+            word-break: keep-all; /* 한글 텍스트 줄바꿈 깔끔하게 */
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 48px 16px; /* rem -> px */
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            color: var(--text-muted);
+            font-size: 14px; /* rem -> px */
+        }
+
+        footer a {
+            color: var(--point-color);
+            text-decoration: none;
+            transition: text-shadow 0.3s;
+        }
+
+        footer a:hover {
+            text-shadow: 0 0 8px var(--point-color-glow);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-wrapper {
+                flex-direction: column;
+            }
+            .profile-img {
+                width: 100%;
+                height: 300px;
+            }
+            .character-row {
+                grid-template-columns: 1fr; /* 모바일에서는 1열 세로 배치 */
+            }
+            .header-content h1 {
+                font-size: 35px; /* 모바일 폰트 크기 조정 */
+            }
+            .group-img {
+                height: 200px; /* 모바일 단체사진 높이 조정 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Hero Image -->
+    <header>
+        <div class="img-placeholder header-img">
+            [ 헤더 메인 이미지 / 판타지 풍경 ]
+        </div>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <h1>장송의 프리렌</h1>
+            <p>인간을 알기 위한 엘프 마법사의 두 번째 여정</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section 1: Synopsis -->
+        <section id="synopsis">
+            <h2 class="section-title">Synopsis</h2>
+            <div class="synopsis-content">
+                마왕을 쓰러뜨리고 세상을 구한 영웅, 용사 일행.<br>
+                그중 한 명인 엘프 마법사 '프리렌'은 인간과 달리 천 년 이상의 수명을 살아갑니다.<br><br>
+                마왕 토벌 후 50년이 흘러 옛 동료들과 재회하지만, 짧은 수명을 가진 그들의 죽음을 차례로 지켜보며<br>
+                프리렌은 '인간을 좀 더 알려고 노력하지 않았던' 자신의 과거를 후회하게 됩니다.<br><br>
+                이후 프리렌은 영혼이 잠드는 곳 '오레올'에서 옛 동료 힘멜과 다시 만나기 위해,<br>
+                새로운 동료들과 함께 과거의 발자취를 따라가는 두 번째 여정을 시작합니다.
+            </div>
+        </section>
+
+        <!-- Section 2: Character Profile -->
+        <section id="profile">
+            <h2 class="section-title">Character Profile</h2>
+            <div class="profile-wrapper">
+                <div class="img-placeholder profile-img">
+                    [ 프리렌 전신 또는 반신 이미지 ]
+                </div>
+                <div class="profile-info">
+                    <h3>프리렌 <span>Frieren</span></h3>
+                    <ul class="info-list">
+                        <li><strong>종족 / 직업</strong> <div>엘프 / 마법사 (이명: 장송의 프리렌)</div></li>
+                        <li><strong>나이</strong> <div>1,000살 이상 (정확한 나이 불명)</div></li>
+                        <li><strong>성격</strong> 
+                            <ul class="sub-list">
+                                <li>감정 기복이 적고 무덤덤하며 매사에 여유롭습니다.</li>
+                                <li>냉정해 보이지만 은근히 정이 많고, 가끔은 어린아이처럼 엉뚱한 면모를 보입니다.</li>
+                                <li>엄청난 귀차니스트로 아침에 스스로 일어나는 법이 거의 없습니다.</li>
+                            </ul>
+                        </li>
+                        <li><strong>좋아하는 것</strong> 
+                            <div>마도서 수집 (실용성 없는 기묘한 마법 모으기), 늦잠 자기, 옛 동료들과 함께했던 과거의 소중한 추억.</div>
+                        </li>
+                        <li><strong>싫어하는 것</strong> 
+                            <div>마족. 스승을 잃은 과거의 기억으로 인해 마족에게만큼은 일말의 자비도 없이 차갑고 냉혹합니다.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Companions -->
+        <section id="companions">
+            <h2 class="section-title">Companions</h2>
+            
+            <!-- 과거: 용사 일행 -->
+            <div class="party-section">
+                <h3 class="party-title">⚔️ 과거 : 용사 일행</h3>
+                <div class="img-placeholder group-img">
+                    [ 용사 일행 단체 사진 (가로로 긴 이미지 추천) ]
+                </div>
+                <div class="character-row">
+                    <div class="character-card">
+                        <div class="img-placeholder char-img">[ 힘멜 ]</div>
+                        <div class="char-info">
+                            <h4>힘멜 (용사)</h4>
+                            <p>프리렌에게 큰 영향을 끼친 파티의 리더. 나르시시스트 기질이 다분하지만 곤경에 처한 사람을 지나치지 못하는 진정한 용사입니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="character-card">
+                        <div class="img-placeholder char-img">[ 하이터 ]</div>
+                        <div class="char-info">
+                            <h4>하이터 (성직자)</h4>
+                            <p>술을 사랑하는 타락 성직자. 늘 웃는 얼굴로 궤변을 늘어놓지만 사실 통찰력이 뛰어나며 훗날 페른을 거두게 됩니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="character-card">
+                        <div class="img-placeholder char-img">[ 아이젠 ]</div>
+                        <div class="char-info">
+                            <h4>아이젠 (전사)</h4>
+                            <p>드워프족 최강 전사. 무뚝뚝하지만 속정이 깊고 초인적인 내구력을 자랑합니다. 현재 일행인 슈타르크의 스승입니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 현재: 마법사 일행 -->
+            <div class="party-section">
+                <h3 class="party-title">🪄 현재 : 마법사 일행</h3>
+                <div class="img-placeholder group-img">
+                    [ 마법사 일행 단체 사진 (가로로 긴 이미지 추천) ]
+                </div>
+                <div class="character-row">
+                    <div class="character-card">
+                        <div class="img-placeholder char-img">[ 페른 ]</div>
+                        <div class="char-info">
+                            <h4>페른 (마법사)</h4>
+                            <p>프리렌의 유일한 제자. 나이는 어리지만 아침마다 프리렌을 챙기는 '엄마' 포지션이며, 마법에 있어 천재적인 재능을 가졌습니다.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="character-card">
+                        <div class="img-placeholder char-img">[ 슈타르크 ]</div>
+                        <div class="char-info">
+                            <h4>슈타르크 (전사)</h4>
+                            <p>아이젠의 제자. 겉보기엔 겁쟁이지만 실전에서는 어마어마한 파괴력을 보여주며 일행의 훌륭한 탱커 역할을 합니다.</p>
+                        </div>
+                    </div>
+
+                    <div class="character-card">
+                        <div class="img-placeholder char-img">[ 자인 ]</div>
+                        <div class="char-info">
+                            <h4>자인 (승려)</h4>
+                            <p>천재적인 재능을 가진 파계승. 도박과 술을 좋아하지만, 일행 사이에서 유일하게 제대로 된 어른이자 중재자 역할을 해냅니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>This site was created duting a <a href="https://hycu.ac.kr" target="_blank">HYCU Web Design Class.</a>&copy;GE</p>
+    </footer>
+
+</body>
+</html>
