@@ -3,7 +3,7 @@
     <title>책 소개하기</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
     
     <style>
         body {
@@ -44,7 +44,7 @@
 
         .cover-image-wrap {
             text-align: center;
-            margin-bottom: 50px;
+            margin: 50px 0px 50px 0px;
         }
 
         .cover-image-wrap img {
@@ -53,7 +53,7 @@
             box-shadow: 10px 10px 0px #ff6b00;
         }
 
-        .quote {
+        .book-title {
             font-size: 20px;
             font-weight: 800;
             color: #ff6b00;
@@ -66,16 +66,20 @@
         .description {
             font-size: 16px;
             font-weight: 500;
-            text-align: justify;
+            text-align: left;
             color: #444444;
             margin-bottom: 60px;
             word-break: keep-all;
         }
 
         .index {
+            padding: 20px 0px;
+        }
+
+        hr {
+            border: 0;
             border-top: 2px solid #111111;
-            padding-top: 40px;
-            margin-bottom: 50px;
+            margin: 30px 0;
         }
 
         .index-title {
@@ -115,6 +119,7 @@
 
         .button-wrap {
             text-align: center;
+            margin-top: 40px;
         }
 
         .btn-link {
@@ -146,19 +151,16 @@
             <p class="author">요나스 요나손 지음 | 임호경 옮김</p>
         </div>
 
-        <!-- 책 표지 -->
-        <div class="cover-image-wrap">
-            <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788932917771.jpg" alt="창문 넘어 도망친 100세 노인 표지 이미지">
-        </div>
-
         <!-- 책 소개 -->
-        <div class="quote">
+        <div class="book-title">
             "어차피 일어날 일은 일어나는 법, 세상만사는 그 자체로 놔두어야 한다."
         </div>
         
         <p class="description">
-            스웨덴 작가 요나스 요나손의 데뷔작이자 전 세계적으로 천만 부 이상 판매된 글로벌 베스트셀러입니다. 100번째 생일 파티를 앞두고 지루한 양로원 생활에 염증을 느낀 할아버지 '알란 칼손'이 슬리퍼 차림으로 창문을 넘어 탈출하면서 벌어지는 파란만장한 모험을 그립니다.
+            스웨덴의 작가 요나스 요나손의 데뷔작이자 전 세계적으로 천만 부 이상 판매된 글로벌 베스트셀러입니다. 100번째 생일 파티를 앞두고 지루한 양로원 생활에 염증을 느낀 할아버지 '알란 칼손'이 슬리퍼 차림으로 창문을 넘어 탈출하면서 벌어지는 파란만장한 모험을 그립니다. 어떤 이데올로기나 심각한 갈등 앞에서도 특유의 낙천성과 무심함으로 위기를 모면하는 알란 할아버지의 모습은 독자들에게 끊임없는 웃음과 묘한 통쾌함을 선사합니다.
         </p>
+
+        <hr>
 
         <!-- 목차 -->
         <div class="index">
@@ -177,11 +179,18 @@
             </ul>
         </div>
 
+        <hr>
+
         <!-- 온라인 서점 링크 -->
         <div class="button-wrap">
             <a href="https://product.kyobobook.co.kr/detail/S000000581866" target="_blank" class="btn-link">
                 도서 자세히 보기
             </a>
+        </div>
+
+        <!-- 책 표지 -->
+        <div class="cover-image-wrap">
+            <img src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788932917771.jpg" alt="창문 넘어 도망친 100세 노인 표지 이미지">
         </div>
     </div>
 
