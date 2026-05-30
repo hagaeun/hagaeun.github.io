@@ -135,15 +135,24 @@ p {
 
 .green {
     background-color: #e2f5d7;
+    margin: 20px 0px 0px 0px;
 }
 
 footer {
     text-align: center;
-    margin: 50px;
+    margin: 0px;
+    padding: 100px;
+    background-color: #f9c0cd;
 }
 
 footer h3 {
     font-size: 30px;
+}
+
+footer p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 15px;
 }
 
 .right-text {
@@ -153,4 +162,49 @@ footer h3 {
 nav li a {
     text-decoration: none;
     color: #000;
+}
+
+.contact-section {
+    background-color: #f9c0cd;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.contact-box {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.contact-box input,
+.contact-box textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+    outline: none;
+    border-color: #222;
+}
+
+.input-group {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 500px) {
+    .input-group {
+        flex-direction: column;
+        gap: 0;
+    }
 }
