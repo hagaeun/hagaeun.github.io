@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Roboto", sans-serif;
     margin: 0;
@@ -23,7 +27,7 @@ nav ul li {
 }
 
 nav {
-    background-color: #e2f5d7;
+    background-color: #f9c0cd;
     position: fixed;
     z-index: 1;
     width: 100%;
@@ -41,7 +45,7 @@ header {
     background-image: url(../img/background.png);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: -100px;;
+    background-position-y: -80px;;
 }
 
 h1 {
@@ -55,13 +59,20 @@ ul li {
 }
 
 .button {
-    border: 1px solid #89a07c;
+    border: 1px solid #222;
     text-decoration: none;
-    color: #89a07c;
+    color: #000;
+    background-color: #fff;
     padding: 10px 20px;
     border-radius: 25px;
     display: inline-block;
     margin: 10px 40px;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #000; /* 테두리와 같은 색으로 배경을 채움 */
+    color: #ffffff; /* 글자색은 흰색으로 변경 */
 }
 
 .intro_img {
@@ -84,7 +95,7 @@ h2 {
 }
 
 p {
-    line-height: 130%;
+    line-height: 150%;
 }
 
 .skill-list {
@@ -104,8 +115,26 @@ p {
     margin: 0px;
 }
 
+.project .img-frame {
+    overflow: hidden; 
+}
+
+.project .img-frame img {
+    display: block;
+    width: 100%;
+    transition: transform 0.4s ease;
+}
+
+.project .img-frame img:hover {
+    transform: scale(1.05);
+}
+
+.blue {
+    background-color: #bee0e5;
+}
+
 .green {
-    background-color: #e2f5d7
+    background-color: #e2f5d7;
 }
 
 footer {
